@@ -1,0 +1,28 @@
+
+version: 2
+
+models:
+    - name: stg_customers
+      description: "A starter dbt model"
+      columns:
+          - name: customer_id
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+    - name: stg_orders
+      description: "testing orders table"
+      columns:
+        - name: status
+          tests:
+            - accepted_values:
+                values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
+        - name: customer_id
+          tests:
+          - not_null
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_id
+        
+
+   
