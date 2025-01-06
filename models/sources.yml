@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+   - name: first_source
+     description: this is first and only raw source from raw database
+     database: raw
+     schema: jaffle_shop
+     tables: 
+        - name: customers
+          description: this is customers table
+        - name: orders
+          description: this is orders table
+        - name: stripe
+          description: this stripe model
+          
